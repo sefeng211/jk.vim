@@ -3,6 +3,12 @@ if !has('python3')
     finish
 endif
 
+
+if $SSH_CLIENT != "" || $SSH_TTY != ""
+    echomsg ':jk.nvim cannot be used in an remote context'
+    finish
+endif
+
 py3 << EOF
 from pynput import keyboard
 
