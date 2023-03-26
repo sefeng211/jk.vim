@@ -1,11 +1,9 @@
 if !has('python3')
-    echomsg ':python3 is not available, vim-find-test will not be loaded.'
     finish
 endif
 
 
-if $SSH_CLIENT != "" || $SSH_TTY != ""
-    echomsg ':jk.nvim cannot be used in an remote context'
+if $SSH_CLIENT != "" || $SSH_TTY != "" || $SSH_CONNECTION != ""
     finish
 endif
 
